@@ -25,7 +25,7 @@ public class JobCompletionNotificationListener implements JobExecutionListener {
                     (rs, row) -> new PersonDTO(
                             rs.getString(1),
                             rs.getString(2))
-            ).forEach(person -> log.info("Found <{{}}> in the database.", person));
+            ).forEach(p -> log.info("Found " + p + " in the database."));
         }
     }
 }
