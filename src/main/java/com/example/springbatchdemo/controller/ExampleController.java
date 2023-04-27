@@ -10,18 +10,18 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-//@RestController
-//@RequestMapping
-//@RequiredArgsConstructor
-//@Slf4j
+@RestController
+@RequestMapping
+@RequiredArgsConstructor
+@Slf4j
 public class ExampleController {
 
-//    private final PersonRepository personRepository;
-//
-//    @GetMapping()
-//    public void getPerson(){
-//        List<Person> persons = personRepository.findAll();
-//        persons.forEach(p -> log.info(p.getFirstName()));
-//    }
+    private final PersonRepository personRepository;
+
+    @GetMapping()
+    public void getPerson(){
+        List<Person> persons = personRepository.findAll();
+        persons.forEach(p -> log.info(p.getFirstName()));
+    }
 
 }

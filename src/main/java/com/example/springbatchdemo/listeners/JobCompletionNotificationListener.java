@@ -17,6 +17,13 @@ public class JobCompletionNotificationListener implements JobExecutionListener {
     private final JdbcTemplate jdbcTemplate;
 
     @Override
+    public void beforeJob(JobExecution jobExecution) {
+        long jobId = jobExecution.getJobId();
+        log.info("JobId: " + jobId);
+        jobExecution.getExecutionContext().put("jobId",jobId);
+    }
+
+    @Override
     public void afterJob(JobExecution jobExecution) {
         if (jobExecution.getStatus() == BatchStatus.COMPLETED) {
             log.info("!!! JOB FINISHED! Time to verify the results");
