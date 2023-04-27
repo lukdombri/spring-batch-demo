@@ -20,7 +20,7 @@ public class JobCompletionNotificationListener implements JobExecutionListener {
     public void beforeJob(JobExecution jobExecution) {
         long jobId = jobExecution.getJobId();
         log.info("JobId: " + jobId);
-        jobExecution.getExecutionContext().put("jobId",jobId);
+        jobExecution.getExecutionContext().put("jobId", jobId);
     }
 
     @Override
@@ -33,6 +33,8 @@ public class JobCompletionNotificationListener implements JobExecutionListener {
                             rs.getString(1),
                             rs.getString(2))
             ).forEach(p -> log.info("Found " + p + " in the database."));
+        } else if (jobExecution.getStatus() == BatchStatus.FAILED) {
+            log.info("!!! JOB NOT FINISHED!");
         }
     }
 }

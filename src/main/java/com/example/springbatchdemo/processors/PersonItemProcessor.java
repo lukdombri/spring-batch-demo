@@ -7,14 +7,13 @@ import org.springframework.batch.item.ItemProcessor;
 @Slf4j
 public class PersonItemProcessor implements ItemProcessor<PersonDTO, PersonDTO> {
 
-
     @Override
     public PersonDTO process(final PersonDTO person) throws Exception{
         final String firstName = person.getFirstName().toUpperCase();
         final String lastName = person.getLastName().toUpperCase();
 
         //if("JASON".equals(firstName)) throw new IllegalArgumentException("Niedozowlone Imie!");
-        //Thread.sleep(1_0000);
+        Thread.sleep(1_000);
 
         final PersonDTO transformedPerson = new PersonDTO(firstName, lastName);
 
