@@ -34,5 +34,8 @@ public class JobCompletionNotificationListener implements JobExecutionListener {
                             rs.getString(2))
             ).forEach(p -> log.info("Found " + p + " in the database."));
         }
+        else if (jobExecution.getStatus() == BatchStatus.FAILED){
+            log.info("!!! JOB FAILED");
+        }
     }
 }

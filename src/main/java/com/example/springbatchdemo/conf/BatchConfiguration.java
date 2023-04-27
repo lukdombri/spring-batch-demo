@@ -66,10 +66,13 @@ public class BatchConfiguration {
     public Step step_first(JobRepository jobRepository,
                       PlatformTransactionManager transactionManager, JdbcBatchItemWriter<PersonDTO> writer) {
         return new StepBuilder("step_first", jobRepository)
-                .<PersonDTO, PersonDTO>chunk(2, transactionManager)
+                .<PersonDTO, PersonDTO>chunk(5, transactionManager)
                 .reader(reader())
                 .processor(processor())
                 .writer(writer)
+//                .faultTolerant()
+//                .skipLimit(1)
+//                .skip(IllegalArgumentException.class)
                 .build();
     }
 }

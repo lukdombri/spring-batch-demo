@@ -13,7 +13,7 @@ public class PersonItemProcessor implements ItemProcessor<PersonDTO, PersonDTO> 
         final String firstName = person.getFirstName().toUpperCase();
         final String lastName = person.getLastName().toUpperCase();
 
-        //if("JASON".equals(firstName)) throw new IllegalArgumentException("Niedozowlone Imie!");
+        //if("JASON".equals(firstName) || "ERIC".equals(firstName)) throw new IllegalArgumentException("Niedozowlone Imie!");
         //Thread.sleep(1_0000);
 
         final PersonDTO transformedPerson = new PersonDTO(firstName, lastName);
